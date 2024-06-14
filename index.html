@@ -41,6 +41,9 @@
             background-color: #fff;
             box-sizing: border-box;
         }
+        .form-container input::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
         .form-container button {
             width: 100%;
             padding: 10px;
@@ -60,9 +63,9 @@
         <h2>Введите ваши данные</h2>
         <form id="userForm">
             <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required placeholder="Дмитрий">
             <label for="phone">Номер телефона:</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+79999999999" pattern="^\+79\d{9}$">
+            <input type="tel" id="phone" name="phone" required placeholder="+79166168440" pattern="^\+79\d{9}$">
             <button type="button" onclick="sendMessage()">Отправить</button>
         </form>
     </div>
