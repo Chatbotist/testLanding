@@ -62,18 +62,25 @@
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required>
             <label for="phone">Номер телефона:</label>
-            <input type="text" id="phone" name="phone" required pattern="\d*">
+            <input type="tel" id="phone" name="phone" required placeholder="+79999999999" pattern="^\+79\d{9}$">
             <button type="button" onclick="sendMessage()">Отправить</button>
         </form>
     </div>
 
     <script>
         function sendMessage() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const phonePattern = /^\+79\d{9}$/;
+
+            if (!name || !phone || !phonePattern.test(phone)) {
+                alert('Пожалуйста, введите корректные данные.');
+                return;
+            }
+
             const botToken = '6622286162:AAFs87hQFpIXgFOEHu4-DUOGzWbdbx_cmJ4';
             const chatId = '-1002021943203';
             const messageThreadId = '9';
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
             const text = `Имя: ${name}\nНомер телефона: ${phone}`;
 
             const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&message_thread_id=${messageThreadId}&text=${encodeURIComponent(text)}`;
