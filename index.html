@@ -26,11 +26,6 @@
             margin-bottom: 20px;
             color: #000;
         }
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-            color: #000;
-        }
         .form-container input {
             width: 100%;
             padding: 10px;
@@ -62,10 +57,8 @@
     <div class="form-container">
         <h2>Введите ваши данные</h2>
         <form id="userForm">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required placeholder="Дмитрий">
-            <label for="phone">Номер телефона:</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+79166168440" pattern="^\+79\d{9}$">
+            <input type="text" id="name" name="name" required placeholder="ФИО">
+            <input type="tel" id="phone" name="phone" required placeholder="Номер телефона" pattern="^\+79\d{9}$">
             <button type="button" onclick="sendMessage()">Отправить</button>
         </form>
     </div>
