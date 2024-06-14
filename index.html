@@ -11,14 +11,16 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #000;
             color: #000;
+            margin: 0;
         }
         .form-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
         .form-container h2 {
             margin-bottom: 20px;
@@ -37,6 +39,7 @@
             border-radius: 5px;
             color: #000;
             background-color: #fff;
+            box-sizing: border-box;
         }
         .form-container button {
             width: 100%;
@@ -59,7 +62,7 @@
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required>
             <label for="phone">Номер телефона:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="text" id="phone" name="phone" required pattern="\d*">
             <button type="button" onclick="sendMessage()">Отправить</button>
         </form>
     </div>
