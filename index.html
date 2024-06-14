@@ -26,7 +26,8 @@
             margin-bottom: 20px;
             color: #000;
         }
-        .form-container input {
+        .form-container input,
+        .form-container textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -36,7 +37,8 @@
             background-color: #fff;
             box-sizing: border-box;
         }
-        .form-container input::placeholder {
+        .form-container input::placeholder,
+        .form-container textarea::placeholder {
             color: rgba(0, 0, 0, 0.5);
         }
         .form-container button {
@@ -59,6 +61,7 @@
         <form id="userForm">
             <input type="text" id="name" name="name" required placeholder="ФИО">
             <input type="tel" id="phone" name="phone" required placeholder="Номер телефона" pattern="^\+79\d{9}$">
+            <textarea id="comment" name="comment" placeholder="Комментарий" rows="4"></textarea>
             <button type="button" onclick="sendMessage()">Отправить</button>
         </form>
     </div>
@@ -67,6 +70,7 @@
         function sendMessage() {
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const comment = document.getElementById('comment').value.trim();
             const phonePattern = /^\+79\d{9}$/;
 
             if (!name || !phone || !phonePattern.test(phone)) {
@@ -77,7 +81,7 @@
             const botToken = '6622286162:AAFs87hQFpIXgFOEHu4-DUOGzWbdbx_cmJ4';
             const chatId = '-1002021943203';
             const messageThreadId = '9';
-            const text = `Имя: ${name}\nНомер телефона: ${phone}`;
+            const text = `Имя: ${name}\nНомер телефона: ${phone}\nКомментарий: ${comment}`;
 
             const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&message_thread_id=${messageThreadId}&text=${encodeURIComponent(text)}`;
 
